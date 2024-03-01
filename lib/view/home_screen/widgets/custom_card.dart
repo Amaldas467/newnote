@@ -7,11 +7,13 @@ class Customcards extends StatelessWidget {
     required this.des,
     required this.date,
     required this.color,
+    required this.ondeletepressed,
   });
   final String title;
   final String des;
   final String date;
   final Color color;
+  final Function()? ondeletepressed;
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +47,14 @@ class Customcards extends StatelessWidget {
                   SizedBox(
                     width: 15,
                   ),
-                  Icon(
-                    Icons.delete,
-                    color: Colors.black,
+                  InkWell(
+                    onTap: () {
+                      ondeletepressed!();
+                    },
+                    child: Icon(
+                      Icons.delete,
+                      color: Colors.black,
+                    ),
                   )
                 ],
               ),

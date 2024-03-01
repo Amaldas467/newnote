@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/controller/homescreen_controller.dart';
 
-class Bottom_sheet extends StatelessWidget {
+class Bottom_sheet extends StatefulWidget {
   const Bottom_sheet({super.key, required this.onsavepressed});
   final void Function()? onsavepressed;
 
+  @override
+  State<Bottom_sheet> createState() => _Bottom_sheetState();
+}
+
+class _Bottom_sheetState extends State<Bottom_sheet> {
   @override
   Widget build(BuildContext context) {
     List colorlist = [Colors.red, Colors.green, Colors.blue, Colors.amber];
@@ -19,6 +25,7 @@ class Bottom_sheet extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             TextFormField(
+              controller: Homescreencontroller.titlecontroller,
               decoration: InputDecoration(
                   fillColor: Color.fromARGB(255, 223, 220, 220),
                   filled: true,
@@ -29,6 +36,7 @@ class Bottom_sheet extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: Homescreencontroller.descontroller,
               decoration: InputDecoration(
                   fillColor: const Color.fromARGB(255, 223, 220, 220),
                   filled: true,
@@ -39,6 +47,7 @@ class Bottom_sheet extends StatelessWidget {
               height: 10,
             ),
             TextFormField(
+              controller: Homescreencontroller.datecontroller,
               decoration: InputDecoration(
                   fillColor: const Color.fromARGB(255, 223, 220, 220),
                   filled: true,
@@ -84,7 +93,7 @@ class Bottom_sheet extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    onsavepressed;
+                    widget.onsavepressed!();
                     Navigator.pop(context);
                   },
                   child: Container(

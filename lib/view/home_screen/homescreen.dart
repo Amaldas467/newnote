@@ -57,6 +57,10 @@ class _HomescreenState extends State<Homescreen> {
             des: homescreencontroller.dummydb[index]["des"],
             date: homescreencontroller.dummydb[index]["date"],
             color: homescreencontroller.dummydb[index]["color"],
+            ondeletepressed: () {
+              homescreencontroller.deletedata(index);
+              setState(() {});
+            },
           );
         },
       ),
